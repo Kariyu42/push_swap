@@ -6,11 +6,12 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/01 17:47:30 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:00:07 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 static long	arr_to_int(char *str)
 {
@@ -20,7 +21,7 @@ static long	arr_to_int(char *str)
 	num = 0;
 	sign = 1;
 	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
-		|| *str == '\f' || *str == '\r' || *str == '\v'))
+			|| *str == '\f' || *str == '\r' || *str == '\v'))
 		str++;
 	if (*str == '-')
 	{
@@ -34,29 +35,27 @@ static long	arr_to_int(char *str)
 		num = num * 10 + (*str - '0');
 		str++;
 	}
-	printf("num = %ld\n", num);
-	if (num > 2147483647 || num < -2147483648)
+	if (num > 2147483647 || num < -2147483649)
 		ft_error();
 	return (sign * num);
 }
 
-static t_node	*in_quotes(char *str)
+static void	in_quotes(t_node **a_head, char *str)
 {
 	int			i;
 	long long	num;
-	t_node		*ptr;
 	char		**tmp;
 
 	i = 0;
-	ptr = NULL;
 	tmp = ft_split(str, ' ');
-	while (tmp[i])
+	if (tmp[i] == '\0')
+		ft_error();
+	while (tmp[i] && check_number(tmp[i]))
 	{
 		num = arr_to_int(tmp[i]);
-		add_node_back(&ptr, new_node(num));
+		add_node_back(a_head, new_node(num));
 		i++;
 	}
-	return (ptr);
 }
 
 t_node	*parsing_argv(int argc, char **argv)
@@ -67,15 +66,19 @@ t_node	*parsing_argv(int argc, char **argv)
 
 	i = 1;
 	a_head = NULL;
-	while (argv[i] && i < argc)
+	while (i < argc)
 	{
-		if (ft_strchr(argv[i], ' '))
-			a_head = in_quotes(argv[i]);
-		else
+		if (ft_strchr(argv[i], ' ')) //multiple number argv[i]
+			in_quotes(&a_head, argv[i]);
+		else if (ft_isdigit(argv[i][0]) || ((argv[i][0] == '-' || argv[i][0] == '+')
+			&& ft_isdigit(argv[i][1]))) //single number with + or - included
 		{
+			check_number(argv[i]);
 			num = arr_to_int(argv[i]);
 			add_node_back(&a_head, new_node(num));
 		}
+		else
+			ft_error();
 		i++;
 	}
 	return (a_head);
