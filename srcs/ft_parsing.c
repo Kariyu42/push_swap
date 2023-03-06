@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/02 17:00:07 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/03 17:50:41 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static long	arr_to_int(char *str)
 		num = num * 10 + (*str - '0');
 		str++;
 	}
-	if (num > 2147483647 || num < -2147483649)
+	if (num > 2147483647 || num < -2147483648)
 		ft_error();
 	return (sign * num);
 }
@@ -48,7 +48,7 @@ static void	in_quotes(t_node **a_head, char *str)
 
 	i = 0;
 	tmp = ft_split(str, ' ');
-	if (tmp[i] == '\0')
+	if (tmp[i] == NULL)
 		ft_error();
 	while (tmp[i] && check_number(tmp[i]))
 	{
