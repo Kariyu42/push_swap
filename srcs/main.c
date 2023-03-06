@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/02 16:14:43 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:38:50 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,28 @@
 
 int	main(int argc, char **argv)
 {
+	int		len;
 	t_node	*stack_a;
+	t_node	*stack_b;
 
+	len = 0;
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	stack_a = parsing_argv(argc, argv);
-	
-	int i = 1;
+	check_duplicates(stack_a);
+	check_order(stack_a);
+	len = node_size(stack_a);
+	stack_a = simplified_stack(stack_a);
+	if (len <= 5)
+		stack_a = sort_small_stack(stack_a);
+	else
+		stack_a = sort_big_stack();
 	while (stack_a)
 	{
 		printf("[%d]---> ", stack_a->num);
 		stack_a = stack_a->next;
-		i++;
 	}
 	printf("NULL\n");
 	return (0);

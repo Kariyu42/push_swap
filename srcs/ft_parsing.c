@@ -6,12 +6,13 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/03 17:50:41 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:28:29 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
+#include <limits.h>
 
 static long	arr_to_int(char *str)
 {
@@ -34,9 +35,9 @@ static long	arr_to_int(char *str)
 	{
 		num = num * 10 + (*str - '0');
 		str++;
+		if ((num > INT_MAX && sign == 1) || num > 2147483648)
+			ft_error();
 	}
-	if (num > 2147483647 || num < -2147483648)
-		ft_error();
 	return (sign * num);
 }
 
@@ -52,6 +53,7 @@ static void	in_quotes(t_node **a_head, char *str)
 		ft_error();
 	while (tmp[i] && check_number(tmp[i]))
 	{
+		
 		num = arr_to_int(tmp[i]);
 		add_node_back(a_head, new_node(num));
 		i++;

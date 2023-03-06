@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:54:26 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/01 16:54:49 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:41:00 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ static t_node	*last_node(t_node *ptr)
 		ptr = ptr->next;
 	}
 	return (ptr);
+}
+
+int	node_size(t_node *stack)
+{
+	int	len;
+
+	len = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		len++;
+	}
+	return (len);
 }
 
 void	add_node_back(t_node **ptr, t_node *new_node)
