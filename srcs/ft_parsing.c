@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/06 11:28:29 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:48:36 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static long	arr_to_int(char *str)
 	return (sign * num);
 }
 
-static void	in_quotes(t_node **a_head, char *str)
+static void	in_quotes(t_list **a_head, char *str)
 {
 	int			i;
 	long long	num;
@@ -53,18 +53,17 @@ static void	in_quotes(t_node **a_head, char *str)
 		ft_error();
 	while (tmp[i] && check_number(tmp[i]))
 	{
-		
 		num = arr_to_int(tmp[i]);
-		add_node_back(a_head, new_node(num));
+		ft_lstadd_back(a_head, ft_lstnew(num));
 		i++;
 	}
 }
 
-t_node	*parsing_argv(int argc, char **argv)
+t_list	*parsing_argv(int argc, char **argv)
 {
 	int		i;
 	int		num;
-	t_node	*a_head;
+	t_list	*a_head;
 
 	i = 1;
 	a_head = NULL;
@@ -77,7 +76,7 @@ t_node	*parsing_argv(int argc, char **argv)
 		{
 			check_number(argv[i]);
 			num = arr_to_int(argv[i]);
-			add_node_back(&a_head, new_node(num));
+			ft_lstadd_back(&a_head, ft_lstnew(num));
 		}
 		else
 			ft_error();

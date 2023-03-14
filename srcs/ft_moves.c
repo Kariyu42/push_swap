@@ -6,16 +6,16 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/10 18:10:32 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/12 12:14:40 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	do_sa(t_node **stack)
+void	do_sa(t_list **stack)
 {
-	t_node	*tmp;
-	t_node	*buf;
+	t_list	*tmp;
+	t_list	*buf;
 
 	tmp = *stack;
 	buf = tmp->next;
@@ -24,13 +24,52 @@ void	do_sa(t_node **stack)
 	*stack = buf;
 }
 
-/*void	do_pa(t_node **a, t_node **b)
+void	do_pa(t_list **a, t_list **b)
 {
-	t_node	*tmp_a;
-	t_node	*buf_a;
-	t_node	*tmp_b;
-	t_node	*buf_b;
+	t_list	*tmp;
 
-	tmp_a = *a;
+	tmp = *a;
+	*a = *b;
+	*b = (*b)->next;
+	(*a)->next = tmp;
 }
-*/
+
+void	do_ra(t_list **head)
+{
+	t_list	*tmp;
+
+	tmp = *head;
+	*head = ft_lstlast(*head);
+	(*head)->next = tmp;
+	*head = tmp->next;
+}
+
+void	do_rra(t_list **head)
+{
+	int		len;
+	t_list	*tmp;
+	t_list	*buf;
+
+	tmp = *head;
+	buf = *head;
+	len = ft_lstsize(*head);
+	tmp = ft_lstlast(tmp);
+	*head = tmp;
+	(*head)->next = buf;
+	while (len - 1 > 1)
+	{
+		*head = (*head)->next;
+		len--;
+	}
+	(*head)->next = NULL;
+}
+
+void	do_pb(t_list **a, t_list **b)
+{
+	t_list	*tmp;
+
+	tmp = *b;
+	*b = *a;
+	*a = (*a)->next;
+	(*b)->next = tmp;
+}

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:05:08 by kquetat-          #+#    #+#             */
-/*   Updated: 2022/12/01 13:46:54 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/12 12:06:16 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	i = 0;
-	while (lst)
+	i = 1;
+	while (lst && lst->next)
 	{
 		lst = lst->next;
 		i++;

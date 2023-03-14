@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:46:29 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/06 14:30:50 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:48:43 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,38 +37,38 @@ int	check_number(char *str)
 	return (1);
 }
 
-void	check_duplicates(t_node *stack_a)
+void	check_duplicates(t_list *stack_a)
 {
 	int		nbr;
-	t_node	*tmp;
+	t_list	*tmp;
 
 	while (stack_a->next)
 	{
 		tmp = stack_a;
-		nbr = tmp->num;
+		nbr = tmp->nbr;
 		while (tmp->next)
 		{
 			tmp = tmp->next;
-			if (nbr == tmp->num)
+			if (nbr == tmp->nbr)
 				ft_error();
 		}
 		stack_a = stack_a->next;
 	}
 }
 
-void	check_order(t_node *stack_a)
+void	check_order(t_list *stack_a)
 {
 	int		nbr;
-	t_node	*tmp;
+	t_list	*tmp;
 
 	while (stack_a->next)
 	{
 		tmp = stack_a;
-		nbr = tmp->num;
+		nbr = tmp->nbr;
 		while (tmp->next)
 		{
 			tmp = tmp->next;
-			if (nbr > tmp->num)
+			if (nbr > tmp->nbr)
 				return ;
 		}
 		stack_a = stack_a->next;
