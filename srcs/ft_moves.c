@@ -6,13 +6,13 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/12 12:14:40 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:06:10 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	do_sa(t_list **stack)
+void	do_swap(t_list **stack)
 {
 	t_list	*tmp;
 	t_list	*buf;
@@ -24,52 +24,40 @@ void	do_sa(t_list **stack)
 	*stack = buf;
 }
 
-void	do_pa(t_list **a, t_list **b)
+void	do_push(t_list **s1, t_list **s2)
 {
 	t_list	*tmp;
 
-	tmp = *a;
-	*a = *b;
-	*b = (*b)->next;
-	(*a)->next = tmp;
+	tmp = *s1;
+	*s1 = *s2;
+	*s2 = (*s2)->next;
+	(*s1)->next = tmp;
 }
 
-void	do_ra(t_list **head)
+void	do_rotate(t_list **head)
 {
-	t_list	*tmp;
+	t_list	*last;
+	t_list	*first;
 
-	tmp = *head;
-	*head = ft_lstlast(*head);
-	(*head)->next = tmp;
-	*head = tmp->next;
+	first = *head;
+	last = ft_lstlast(*head);
+	last->next = first;
+	*head = first->next;
+	first->next = NULL;
 }
 
-void	do_rra(t_list **head)
+void	do_revrotate(t_list **head)
 {
-	int		len;
-	t_list	*tmp;
-	t_list	*buf;
+	t_list	*last;
+	t_list	*bef_last;
 
-	tmp = *head;
-	buf = *head;
-	len = ft_lstsize(*head);
-	tmp = ft_lstlast(tmp);
-	*head = tmp;
-	(*head)->next = buf;
-	while (len - 1 > 1)
+	last = *head;
+	while (last->next)
 	{
-		*head = (*head)->next;
-		len--;
+		bef_last = last;
+		last = last->next;
 	}
-	(*head)->next = NULL;
-}
-
-void	do_pb(t_list **a, t_list **b)
-{
-	t_list	*tmp;
-
-	tmp = *b;
-	*b = *a;
-	*a = (*a)->next;
-	(*b)->next = tmp;
+	bef_last->next = NULL;
+	last->next = *head;
+	*head = last;
 }
