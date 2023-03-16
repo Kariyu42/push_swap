@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/15 18:06:10 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:05:09 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	do_swap(t_list **stack)
 	*stack = buf;
 }
 
-void	do_push(t_list **s1, t_list **s2)
+void	do_push(t_list **stack1, t_list **stack2)
 {
-	t_list	*tmp;
+	t_list	*top;
 
-	tmp = *s1;
-	*s1 = *s2;
-	*s2 = (*s2)->next;
-	(*s1)->next = tmp;
+	top = *stack1;
+	*stack1 = *stack2;
+	*stack2 = (*stack2)->next;
+	top
 }
 
 void	do_rotate(t_list **head)
