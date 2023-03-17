@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:46:29 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/13 18:48:43 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/17 15:04:09 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	check_order(t_list *stack_a)
 		}
 		stack_a = stack_a->next;
 	}
-	write(1, "The stack is already sorted!\n", 29);
+	//write(1, "The stack is already sorted!\n", 29);
 	exit(EXIT_SUCCESS);
 }
 
