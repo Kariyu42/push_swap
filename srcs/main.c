@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/17 16:36:45 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:20:10 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	main(int argc, char **argv)
 		sort_three(&stack_a);
 	else if (len > 3 && len <= 5)
 		sort_five(&stack_a);
-//	else
-//		sort_big(&stack_a);
+	else
+		sort_big(&stack_a, len);
 //	print_list(stack_a, "stack_a"); // to be removed
 //	print_list(stack_b, "stack_b"); // to be removed
 	return (0);

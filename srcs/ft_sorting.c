@@ -6,17 +6,24 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:55:33 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/17 16:36:54 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:49:03 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-/*void	sort_big(t_list **stack_a)
+void	sort_big(t_list **stack_a, int len)
 {
+	int		top;
+	int		count;
+	int		bottom;
+	t_list *stack_b;
+
+	count = 0;
+	stack_b = NULL;
 	
-}*/
+}
 
 void	sort_five(t_list **stack_a)
 {
