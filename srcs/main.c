@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/18 14:20:10 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:10:37 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,20 @@ int	main(int argc, char **argv)
 {
 	int		len;
 	t_list	*stack_a;
-	t_list	*stack_b;
+	t_tools	aid;
 
 	len = 0;
+	aid.max = 0;
+	aid.max2 = 0;
+	aid.max3 = 0;
 	stack_a = NULL;
-	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	stack_a = parsing_argv(argc, argv);
 	check_duplicates(stack_a);
 	check_order(stack_a);
 	simplified_stack(&stack_a);
-	//print_index(stack_a); //to be removed
+	print_index(stack_a); // to be removed
 	/*-------------------------------------------------------------------*/
 	//print_list(stack_a, "stack_a"); // to be removed
 	len = ft_lstsize(stack_a);
@@ -58,8 +60,7 @@ int	main(int argc, char **argv)
 	else if (len > 3 && len <= 5)
 		sort_five(&stack_a);
 	else
-		sort_big(&stack_a, len);
-//	print_list(stack_a, "stack_a"); // to be removed
-//	print_list(stack_b, "stack_b"); // to be removed
+		sort_big(&stack_a, aid);
+	//print_list(stack_a, "stack_a"); // to be removed
 	return (0);
 }

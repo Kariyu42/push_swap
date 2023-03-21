@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:18:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/18 15:11:50 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:27:33 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ int	find_biggest(t_list *stack)
 	return (max);
 }
 
-int	small_top_stack(t_list *stack, int i)
+int	find_smallest(t_list *stack)
 {
-	t_list	*current;
+	int	min;
 
-	current = stack;
-	while (current)
+	min = stack->nbr;
+	while (stack)
 	{
-		if ()
-		current = current->next;
+		if (min > stack->nbr)
+			min = stack->nbr;
+		stack = stack->next;
 	}
+	return (min);
 }
 
 void	simplified_stack(t_list **head)

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/18 14:43:37 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:07:26 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,24 @@
 /* library */
 # include "../libft/libft.h"
 
+typedef struct s_tools
+{
+	int	max;
+	int	max2;
+	int	max3;
+}		t_tools;
+
 /* sources */
 int		main(int argc, char **argv);
 int		find_biggest(t_list *stack);
+int		find_smallest(t_list *stack);
 void	simplified_stack(t_list **head);
 t_list	*parsing_argv(int argc, char **argv);
-int		small_top_stack(t_list *stack, int i);
 
 /* sorting */
 void	sort_three(t_list **stack_a);
 void	sort_five(t_list **stack_a);
-void	sort_big(t_list **stack_a, int len);
+void	sort_big(t_list **stack_a, t_tools aid);
 
 /* movements a stack & b stack */
 void	do_rotate(t_list **head, char *str);
