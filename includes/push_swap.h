@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/21 18:07:26 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:05:53 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	check_order(t_list *stack_a);
 
 /* print_list NOT TO BE PUSHED */
 void	print_list(t_list *list, char *str);
+void	print_index(t_list *list);
 
 #endif
