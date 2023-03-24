@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:18:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/21 18:27:33 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:31:51 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	simplified_stack(t_list **head)
 	current = *head;
 	while (current)
 	{
+		current->moves = 0;
 		nbr = current->nbr;
 		tmp = *head;
 		count = 0;
