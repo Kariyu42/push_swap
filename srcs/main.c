@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/22 14:12:10 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:22:10 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int	main(int argc, char **argv)
 
 	len = 0;
 	aid.max = 0;
-	aid.max2 = 0;
-	aid.max3 = 0;
 	stack_a = NULL;
 	if (argc < 2)
 		return (0);

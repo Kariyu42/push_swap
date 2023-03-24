@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/22 12:05:53 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:21:54 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 typedef struct s_tools
 {
 	int	max;
-	int	max2;
-	int	max3;
 }		t_tools;
 
 /* sources */
