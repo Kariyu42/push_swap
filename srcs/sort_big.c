@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:43:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/24 11:35:38 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/25 19:17:50 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static void	top_up_b(t_list **stack_a, t_list **stack_b, int max_index)
 {
-	t_list	*stack_b;
-
-	stack_b = NULL;
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		if ((*stack_a)->index != max_index
@@ -34,23 +31,49 @@ void	moves_count_b(t_list *stack_b, t_list *current)
 	t_list	*lst;
 
 	lst = stack_b;
-	while (lst && lst->index != current->index)
+	if (stack_b->index == current->index)
+		current->moves = 0;
+	else
 	{
-		current->moves += 1;
-		lst = lst->next;
+		while (lst && lst->index != current->index)
+		{
+			current->moves += 1;
+			lst = lst->next;
+		}
+		if (current->moves > ft_lstsize(stack_b) / 2)
+			current->moves = ft_lstsize(stack_b) - current->moves;
 	}
-	if (current->moves >= ft_lstsize(stack_b) / 2)
-		current->moves = ft_lstsize(stack_b) - current->moves;
 }
 
 void	moves_count_a(t_list **stack_a, t_list *stack_b)
 {
-	int	count;
-	t_list *current;
+	t_list	*lst;
+	int		count;
 
 	count = 0;
-	current = stack_b;
-	while (current && current->index != )
+	lst = *stack_a;
+	if (lst && lst->index > stack_b->index)
+		return ;
+	while (lst && lst->index < stack_b->index)
+	{
+		count++;
+		lst = lst->next;
+	}
+	if (count > ft_lstsize(stack_a) / 2)
+		count = ft_lstsize(stack_a) - count;
+	stack_b->moves += count;
+}
+
+void	push_to_a(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*current;
+	int		min_moves;
+
+	current = *stack_b;
+	min_moves = current->moves;
+	while (current && current->moves != min_moves)
+		current = current->next;
+	while (stack_b && stack_b->ind)
 }
 
 void	sort_big(t_list **stack_a, t_tools aid)
@@ -66,5 +89,15 @@ void	sort_big(t_list **stack_a, t_tools aid)
 	{
 		moves_count_b(stack_b, current);
 		moves_count_a(stack_a, current);
+		current = current->next;
+		if (current == NULL)
+		{
+			push_to_a(stack_a, &stack_b);
+			if (stack_b != NULL)
+				break ;
+			else
+				current = stack_b;
+		}
 	}
+	// fonction qui remet stack_a avec le premier_element();
 }
