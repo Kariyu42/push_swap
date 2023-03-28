@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 11:22:37 by kquetat-          #+#    #+#              #
-#    Updated: 2023/03/23 19:41:11 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/03/27 14:42:42 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ endif
 
 SRCS	=	${addprefix ${SRCS_PATH}, ft_error.c \
 										ft_moves.c \
+										ft_counter.c \
 										ft_parsing.c \
 										sort_small.c \
 										utils.c \
+										sort_big.c \
 										main.c}
 
 OBJS	=	$(SRCS:.c=.o)

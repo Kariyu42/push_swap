@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/23 18:21:54 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/27 11:50:54 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,32 @@ void	simplified_stack(t_list **head);
 t_list	*parsing_argv(int argc, char **argv);
 
 /* sorting */
-void	sort_three(t_list **stack_a);
 void	sort_five(t_list **stack_a);
+void	sort_three(t_list **stack_a);
 void	sort_big(t_list **stack_a, t_tools aid);
 
+/* utils sorting */
+int		find_least_moves(t_list *stack_b);
+int		get_least(t_list *stack, int min_moves);
+int		get_best_a(t_list *stack_a, int b_index);
+void	push_to_a(t_list **stack_a, t_list **stack_b);
+void	moves_count_b(t_list *stack_b, t_list *current);
+void	moves_count_a(t_list **stack_a, t_list *stack_b);
+
 /* movements a stack & b stack */
-void	do_rotate(t_list **head, char *str);
 void	do_swap(t_list **stack, char *str);
+void	do_rotate(t_list **head, char *str);
 void	do_revrotate(t_list **head, char *str);
 void	do_push(t_list **stack1, t_list **stack2, char *str);
 
 /* error management */
 void	ft_error(void);
 int		check_number(char *str);
-void	check_duplicates(t_list *stack_a);
 void	check_order(t_list *stack_a);
+void	check_duplicates(t_list *stack_a);
 
 /* print_list NOT TO BE PUSHED */
-void	print_list(t_list *list, char *str);
 void	print_index(t_list *list);
+void	print_list(t_list *list, char *str);
 
 #endif
