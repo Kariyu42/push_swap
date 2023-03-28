@@ -6,11 +6,12 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:43:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/27 15:02:45 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:45:24 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 static void	top_up_b(t_list **stack_a, t_list **stack_b, int max_index)
 {
@@ -31,7 +32,6 @@ void	push_to_a(t_list **stack_a, t_list **stack_b)
 	int		count;
 	int		min_moves;
 
-	count = 0;
 	min_moves = find_least_moves(*stack_b);
 	count = get_least(*stack_b, min_moves);
 	if (count > ft_lstsize(*stack_b) / 2)
@@ -43,11 +43,12 @@ void	push_to_a(t_list **stack_a, t_list **stack_b)
 	else
 		while (count-- > 0)
 			do_rotate(stack_b, "rb\n");
-	if ((*stack_a)->index > (*stack_b)->index)
-		do_push(stack_b, stack_a, "pa\n");
-	else
-	{
+//	if ((*stack_b)->index < (*stack_a)->index)
+//		do_push(stack_b, stack_a, "pa\n");
+//	else
+//	{
 		count = get_best_a(*stack_a, (*stack_b)->index);
+		printf("count best A = %d\n", count);
 		if (count > ft_lstsize(*stack_a) / 2)
 		{
 			count = ft_lstsize(*stack_a) - count;
@@ -58,7 +59,7 @@ void	push_to_a(t_list **stack_a, t_list **stack_b)
 			while (count-- > 0)
 				do_rotate(stack_a, "ra\n");
 		do_push(stack_b, stack_a, "pa\n");
-	}
+//	}
 }
 
 int	find_first(t_list *stack_a)
@@ -103,6 +104,7 @@ void	sort_big(t_list **stack_a, t_tools aid)
 	aid.max = ft_lstsize(*stack_a) - 1;
 	top_up_b(stack_a, &stack_b, aid.max);
 	current = stack_b;
+	init_moves(stack_b);
 	while (current)
 	{
 		moves_count_b(stack_b, current);
@@ -110,13 +112,26 @@ void	sort_big(t_list **stack_a, t_tools aid)
 		current = current->next;
 		if (current == NULL)
 		{
+			printf("\033[1;32m-------------------------FIN DE PARCOURS-------------------------------\033[0m\n");
+			printf("\033[1;31mSTACK A INDEX\033[0m\n");
+			print_index(*stack_a); // index stack_A
+			printf("\033[1;33mSTACK B INDEX\033[0m\n");
+			print_index(stack_b); // index stack_B
+//			print_moves(stack_b, "moves for stack_B"); // to be removed
 			push_to_a(stack_a, &stack_b);
+			printf("\033[1;31mstack A\033[0m \033[1;34mAfter push_a function();\033[0m\n");
+			print_index(*stack_a); // index stack_a
+			printf("\033[1;33mstack B\033[0m \033[1;34mAfter push_a function();\033[0m\n");
+			print_index(stack_b);
 			if (stack_b != NULL)
+			{
+				init_moves(stack_b);
 				current = stack_b;
+			}
 			else
 				break ;
 		}
 	}
-	if ((*stack_a)->index != 0 && stack_b == NULL)
+	if ((*stack_a)->index != 0)
 		final_sort(stack_a);
 }

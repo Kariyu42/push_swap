@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:09:15 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/27 14:42:16 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/28 14:42:32 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	get_best_a(t_list *stack_a, int b_index)
 	current = stack_a;
 	while (current)
 	{
-		if (current->index < b_index)
+		if (current->index > b_index)
 			break ;
 		count++;
 		current = current->next;
@@ -86,8 +86,6 @@ void	moves_count_a(t_list **stack_a, t_list *stack_b)
 
 	count = 0;
 	lst = *stack_a;
-	if (lst && lst->index > stack_b->index)
-		return ;
 	while (lst && lst->index < stack_b->index)
 	{
 		count++;

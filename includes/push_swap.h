@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/27 11:50:54 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:43:55 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	sort_three(t_list **stack_a);
 void	sort_big(t_list **stack_a, t_tools aid);
 
 /* utils sorting */
+void	init_moves(t_list *stack_b);
 int		find_least_moves(t_list *stack_b);
 int		get_least(t_list *stack, int min_moves);
 int		get_best_a(t_list *stack_a, int b_index);
@@ -56,5 +57,6 @@ void	check_duplicates(t_list *stack_a);
 /* print_list NOT TO BE PUSHED */
 void	print_index(t_list *list);
 void	print_list(t_list *list, char *str);
+void	print_moves(t_list *list, char *str);
 
 #endif
