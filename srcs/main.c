@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/28 14:50:42 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:58:01 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_moves(t_list *list, char *str)
 	printf("--------- %s ---------\n\n", str);
 	while (current)
 	{
-		printf("[%d]--> ", current->moves);
+		printf("[%d]--> ", current->moves_a);
 		current = current->next;
 	}
 	printf("NULL\n\n");

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:14:51 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/23 19:54:21 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/29 11:03:39 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ typedef struct s_list
 {
 	int				nbr;
 	int				index;
-	int				moves;
+	int				moves_a;
+	int				moves_b;
+	int				total;
 	struct s_list	*next;
 }					t_list;
 

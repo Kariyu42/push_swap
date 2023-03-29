@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/28 13:43:55 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:02:39 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_moves(t_list *stack_b);
 int		find_least_moves(t_list *stack_b);
 int		get_least(t_list *stack, int min_moves);
 int		get_best_a(t_list *stack_a, int b_index);
+int		best_index(t_list *stack_a, t_list *stack_b);
 void	push_to_a(t_list **stack_a, t_list **stack_b);
 void	moves_count_b(t_list *stack_b, t_list *current);
 void	moves_count_a(t_list **stack_a, t_list *stack_b);

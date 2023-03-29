@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:09:15 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/28 14:42:32 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:51:57 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	find_least_moves(t_list *stack_b)
 	int		min_moves;
 
 	current = stack_b;
-	min_moves = stack_b->moves;
+	min_moves = stack_b->total;
 	while (current)
 	{
-		if (current->moves < min_moves)
-			min_moves = current->moves;
+		if (current->total < min_moves)
+			min_moves = current->total;
 		current = current->next;
 	}
 	return (min_moves);
@@ -35,7 +35,7 @@ int	get_least(t_list *stack, int min_moves)
 
 	count = 0;
 	current = stack;
-	while (current && current->moves != min_moves)
+	while (current && current->total != min_moves)
 	{
 		count++;
 		current = current->next;
@@ -66,32 +66,30 @@ void	moves_count_b(t_list *stack_b, t_list *current)
 
 	lst = stack_b;
 	if (stack_b->index == current->index)
-		current->moves = 0;
+		current->moves_b = 0;
 	else
 	{
 		while (lst && lst->index != current->index)
 		{
-			current->moves += 1;
+			current->moves_b += 1;
 			lst = lst->next;
 		}
-		if (current->moves > ft_lstsize(stack_b) / 2)
-			current->moves = ft_lstsize(stack_b) - current->moves;
+		if (current->moves_b > ft_lstsize(stack_b) / 2)
+			current->moves_b = ft_lstsize(stack_b) - current->moves_b;
 	}
 }
 
 void	moves_count_a(t_list **stack_a, t_list *stack_b)
 {
-	t_list	*lst;
-	int		count;
+	int		big_win;
+	t_list	*current;
 
-	count = 0;
-	lst = *stack_a;
-	while (lst && lst->index < stack_b->index)
+	current = *stack_a;
+	big_win = best_index(current, stack_b);
+	while (current && current->index != big_win)
 	{
-		count++;
-		lst = lst->next;
+		stack_b->moves_a += 1;
+		current = current->next;
 	}
-	if (count > ft_lstsize(*stack_a) / 2)
-		count = ft_lstsize(*stack_a) - count;
-	stack_b->moves += count;
+	stack_b->total = stack_b->moves_a + stack_b->moves_b;
 }
