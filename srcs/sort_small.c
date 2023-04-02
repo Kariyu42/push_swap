@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:55:33 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/23 19:43:53 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:42:04 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sort_five(t_list **stack_a)
 	while (i < 5)
 	{
 		if ((*stack_a)->index != 0 && (*stack_a)->index != 1)
-			do_rotate(stack_a, "ra\n");
+			do_rotate(stack_a, 'a');
 		else
 			do_push(stack_a, &stack_b, "pb\n");
 		i++;
@@ -41,9 +41,9 @@ void	sort_three(t_list **stack_a)
 
 	max = find_biggest(*stack_a);
 	if (max == (*stack_a)->nbr)
-		do_rotate(stack_a, "ra\n");
+		do_rotate(stack_a, 'a');
 	else if (max == (*stack_a)->next->nbr)
-		do_revrotate(stack_a, "rra\n");
+		do_revrotate(stack_a, 'a');
 	if ((*stack_a)->nbr > (*stack_a)->next->nbr)
 		do_swap(stack_a, "sa\n");
 }

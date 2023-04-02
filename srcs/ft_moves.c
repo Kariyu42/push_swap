@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/21 14:32:58 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:41:41 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	do_push(t_list **stack1, t_list **stack2, char *str)
 	ft_putstr_fd(str, 1);
 }
 
-void	do_rotate(t_list **head, char *str)
+void	do_rotate(t_list **head, char c)
 {
 	t_list	*last;
 	t_list	*first;
@@ -46,10 +46,13 @@ void	do_rotate(t_list **head, char *str)
 	last->next = first;
 	*head = first->next;
 	first->next = NULL;
-	ft_putstr_fd(str, 1);
+	if (c == 'a')
+		ft_putstr_fd("ra\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	do_revrotate(t_list **head, char *str)
+void	do_revrotate(t_list **head, char c)
 {
 	t_list	*last;
 	t_list	*bef_last;
@@ -63,5 +66,8 @@ void	do_revrotate(t_list **head, char *str)
 	bef_last->next = NULL;
 	last->next = *head;
 	*head = last;
-	ft_putstr_fd(str, 1);
+	if (c == 'a')
+		ft_putstr_fd("rra\n", 1);
+	else if (c == 'b')
+		ft_putstr_fd("rrb\n", 1);
 }

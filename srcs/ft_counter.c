@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:09:15 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/29 16:51:57 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:21:06 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,23 @@
 
 int	find_least_moves(t_list *stack_b)
 {
+	int		index;
 	t_list	*current;
 	int		min_moves;
 
-	current = stack_b;
+	index = stack_b->index;
 	min_moves = stack_b->total;
+	current = stack_b;
 	while (current)
 	{
 		if (current->total < min_moves)
+		{
+			index = current->index;
 			min_moves = current->total;
+		}
 		current = current->next;
 	}
-	return (min_moves);
+	return (index);
 }
 
 int	get_least(t_list *stack, int min_moves)
@@ -81,15 +86,17 @@ void	moves_count_b(t_list *stack_b, t_list *current)
 
 void	moves_count_a(t_list **stack_a, t_list *stack_b)
 {
-	int		big_win;
+//	int		big_win;
 	t_list	*current;
 
 	current = *stack_a;
-	big_win = best_index(current, stack_b);
-	while (current && current->index != big_win)
+//	big_win = best_index(current, stack_b);
+	while (current && current->index < stack_b->index)
 	{
 		stack_b->moves_a += 1;
 		current = current->next;
 	}
+	if (stack_b->moves_a > ft_lstsize(*stack_a) / 2)
+		stack_b->moves_a = ft_lstsize(*stack_a) - stack_b->moves_a;
 	stack_b->total = stack_b->moves_a + stack_b->moves_b;
 }

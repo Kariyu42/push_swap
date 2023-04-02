@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/29 10:02:39 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:45:38 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ void	moves_count_a(t_list **stack_a, t_list *stack_b);
 
 /* movements a stack & b stack */
 void	do_swap(t_list **stack, char *str);
-void	do_rotate(t_list **head, char *str);
-void	do_revrotate(t_list **head, char *str);
+void	do_rotate(t_list **head, char c);
+void	do_revrotate(t_list **head, char c);
 void	do_push(t_list **stack1, t_list **stack2, char *str);
+void	do_rr(t_list **stack_a, t_list **stack_b, char *str);
+void	do_rrr(t_list **stack_a, t_list **stack_b, char *str);
 
 /* error management */
 void	ft_error(void);
