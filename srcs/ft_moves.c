@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/01 10:41:41 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:55:29 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	do_swap(t_list **stack, char *str)
 	tmp->next = buf->next;
 	buf->next = tmp;
 	*stack = buf;
-	ft_putstr_fd(str, 1);
+	if (str)
+		ft_putstr_fd(str, 1);
 }
 
 void	do_push(t_list **stack1, t_list **stack2, char *str)

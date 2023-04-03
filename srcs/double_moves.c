@@ -6,11 +6,18 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:23:38 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/01 10:48:22 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:58:20 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	do_ss(t_list **stack_a, t_list **stack_b, char *str)
+{
+	do_swap(stack_a, 0);
+	do_swap(stack_b, 0);
+	ft_putstr_fd(str, 1);
+}
 
 void	do_rr(t_list **stack_a, t_list **stack_b, char *str)
 {

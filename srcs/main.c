@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/02 23:18:47 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/03 14:09:02 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int	main(int argc, char **argv)
 	check_order(stack_a);
 	simplified_stack(&stack_a);
 	/*-------------------------------------------------------------------*/
-//	print_list(stack_a, "STACK_A *COLLECTED*"); // to be removed
-//	print_index(stack_a); // to be removed
+	// print_list(stack_a, "STACK_A *COLLECTED*"); // to be removed
+	// print_index(stack_a); // to be removed
 	len = ft_lstsize(stack_a);
 	if (len <= 3)
 		sort_three(&stack_a);
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 		sort_five(&stack_a);
 	else
 		sort_big(&stack_a, aid);
-//	print_list(stack_a, "stack_a"); // to be removed
-//	print_index(stack_a); // to be removed
+	// print_list(stack_a, "stack_a"); // to be removed
+	// print_index(stack_a); // to be removed
 	return (0);
 }
