@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:43:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/03 20:49:24 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/04 09:15:03 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	get_rotate_dir(t_list *stack, int loc)
 	direction = 0;
 	size = ft_lstsize(stack);
 	middle = size / 2;
-	if ((size % 2 == 0 && loc > middle) || (size != 0 && loc - 1 > middle))
+	if (loc >= middle)
 		direction = 1;
 	return (direction);
 }

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/03 14:09:02 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/04 09:14:34 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int	main(int argc, char **argv)
 		sort_big(&stack_a, aid);
 	// print_list(stack_a, "stack_a"); // to be removed
 	// print_index(stack_a); // to be removed
+	// MUST ADD FREE STACKS FUNCTION.
 	return (0);
 }
