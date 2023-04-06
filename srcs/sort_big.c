@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:43:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/04 09:15:03 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:53:24 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,6 @@ void	final_sort(t_list **stack_a, int index)
 
 void	sort_big(t_list **stack_a, t_tools aid)
 {
-	//int	i = 0;
 	t_list	*stack_b;
 	t_list	*current;
 
@@ -172,24 +171,12 @@ void	sort_big(t_list **stack_a, t_tools aid)
 	init_moves(stack_b);
 	while (current)
 	{
-		moves_count_b(stack_b, current); // nombre de coup pour remettre au sommet de B.
-		moves_count_a(stack_a, current); // nombre de coup rajouter pour bien placer les elements dans A.
+		moves_count_b(stack_b, current);
+		moves_count_a(stack_a, current);
 		current = current->next;
 		if (current == NULL)
 		{
-			//i++;
-			// printf("\033[1;32m-------------------------FIN DE PARCOURS-------------------------------\033[0m\n");
-			// printf("\033[1;32m%de passage\033[0m\n", i);
-			// printf("\033[1;31mSTACK A INDEX\033[0m\n");
-			// print_index(*stack_a); // index stack_A
-			// printf("\033[1;33mSTACK B INDEX\033[0m\n");
-			// print_index(stack_b); // index stack_B
-			// print_moves(stack_b, "moves for stack_B"); // to be removed
 			push_to_a(stack_a, &stack_b);
-			// printf("\033[1;31mstack A\033[0m \033[1;34mAfter push_a function();\033[0m\n");
-			// print_index(*stack_a); // index stack_a
-			// printf("\033[1;33mstack B\033[0m \033[1;34mAfter push_a function();\033[0m\n");
-			// print_index(stack_b);
 			if (stack_b != NULL)
 			{
 				init_moves(stack_b);

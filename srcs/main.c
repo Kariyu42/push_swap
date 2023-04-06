@@ -6,54 +6,24 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/04 09:14:34 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:19:06 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-# include <stdio.h>
 
-void	print_moves(t_list *list, char *str)
+void	ft_free_lst(t_list **stack_a)
 {
-	t_list	*current;
+	t_list	*tmp;
 
-	current = list;
-	printf("--------- %s ---------\n\n", str);
-	while (current)
+	tmp = *stack_a;
+	while (*stack_a)
 	{
-		printf("[%d]--> ", current->moves_a);
-		current = current->next;
+		tmp = (*stack_a)->next;
+		free(*stack_a);
+		(*stack_a) = tmp;
 	}
-	printf("NULL\n\n");
-}
-
-void	print_list(t_list *list, char *str)
-{
-	t_list	*current;
-
-	current = list;
-	printf("--------- %s ---------\n\n", str);
-	while (current)
-	{
-		printf("[%d]--> ", current->nbr);
-		current = current->next;
-	}
-	printf("NULL\n\n");
-}
-
-void	print_index(t_list *list)
-{
-	t_list	*current;
-
-	current = list;
-	printf("----------------- INDEX ------------------\n");
-	while (current)
-	{
-		printf("[%d]--> ", current->index);
-		current = current->next;
-	}
-	printf("NULL\n");
-	printf("\n\n");
+	(*stack_a) = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -71,9 +41,6 @@ int	main(int argc, char **argv)
 	check_duplicates(stack_a);
 	check_order(stack_a);
 	simplified_stack(&stack_a);
-	/*-------------------------------------------------------------------*/
-	// print_list(stack_a, "STACK_A *COLLECTED*"); // to be removed
-	// print_index(stack_a); // to be removed
 	len = ft_lstsize(stack_a);
 	if (len <= 3)
 		sort_three(&stack_a);
@@ -81,8 +48,6 @@ int	main(int argc, char **argv)
 		sort_five(&stack_a);
 	else
 		sort_big(&stack_a, aid);
-	// print_list(stack_a, "stack_a"); // to be removed
-	// print_index(stack_a); // to be removed
-	// MUST ADD FREE STACKS FUNCTION.
+	ft_free_lst(&stack_a);
 	return (0);
 }
