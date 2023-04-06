@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/05 15:32:35 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/06 07:44:21 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/06 16:54:56 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ SRCS_BONUS =	ft_lstnew.c \
 
 ### Rules ###
 all:	$(NAME)
-	@echo "\nCompilation completed!"
+	@echo "\nCompilation complete!"
 
 $(NAME):	$(OBJ)
 	@echo -e "$(YELLOW)Creating libft.a...$(RESET)"

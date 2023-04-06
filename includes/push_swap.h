@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/03 16:58:16 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:28:26 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ int		find_least_moves(t_list *stack_b);
 int		get_least(t_list *stack, int min_moves);
 int		get_best_a(t_list *stack_a, int b_index);
 int		best_index(t_list *stack_a, t_list *stack_b);
-void	push_to_a(t_list **stack_a, t_list **stack_b);
 void	moves_count_b(t_list *stack_b, t_list *current);
 void	moves_count_a(t_list **stack_a, t_list *stack_b);
+int		find_sup_index(int best_index, t_list *stack_a);
+int		locate_index(t_list **stack, int index);
+int		get_rotate_dir(t_list *stack, int loc);
+void	sync_rotate_top(t_list **a, t_list **b, int index, int sup_index);
+void	get_index_top(t_list **stack, int index, char c);
 
 /* movements a stack & b stack */
 void	do_swap(t_list **stack, char *str);

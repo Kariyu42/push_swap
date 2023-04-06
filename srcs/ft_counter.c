@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:09:15 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/02 11:21:06 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:33:00 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	find_least_moves(t_list *stack_b)
 int	get_least(t_list *stack, int min_moves)
 {
 	int		count;
-	t_list *current;
+	t_list	*current;
 
 	count = 0;
 	current = stack;
@@ -51,7 +51,7 @@ int	get_least(t_list *stack, int min_moves)
 int	get_best_a(t_list *stack_a, int b_index)
 {
 	int		count;
-	t_list *current;
+	t_list	*current;
 
 	count = 0;
 	current = stack_a;
@@ -86,11 +86,9 @@ void	moves_count_b(t_list *stack_b, t_list *current)
 
 void	moves_count_a(t_list **stack_a, t_list *stack_b)
 {
-//	int		big_win;
 	t_list	*current;
 
 	current = *stack_a;
-//	big_win = best_index(current, stack_b);
 	while (current && current->index < stack_b->index)
 	{
 		stack_b->moves_a += 1;

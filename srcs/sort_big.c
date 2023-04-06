@@ -6,116 +6,28 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:43:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/05 12:53:24 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:34:48 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-static void	top_up_b(t_list **stack_a, t_list **stack_b, int max_index)
-{
-	while (ft_lstsize(*stack_a) > 3)
-	{
-		if ((*stack_a)->index != max_index
-			&& (*stack_a)->index != max_index - 1
-			&& (*stack_a)->index != max_index - 2)
-			{
-				do_push(stack_a, stack_b, "pb\n");
-				if ((*stack_b)->index > max_index / 2
-					&& ft_lstsize(*stack_b) != 1)
-					do_rotate(stack_b, 'b');
-			}
-		else
-			do_rotate(stack_a, 'a');
-	}
-	sort_three(stack_a);
-}
-
-int	find_sup_index(int best_index, t_list *stack_a)
-{
-	t_list	*current;
-	int		sup_index;
-
-	sup_index = best_index + 1;
-	current = stack_a;
-	while (current && sup_index != current->index)
-	{
-		current = current->next;
-		if (!current)
-		{
-			sup_index++;
-			current = stack_a;
-		}
-	}
-	return (sup_index);
-}
-
-int	locate_index(t_list **stack, int index)
-{
-	int		count;
-	t_list	*current;
-
-	count = 0;
-	current = *stack;
-	while (current)
-	{
-		count++;
-		if (current->index == index)
-			break ;
-		current = current->next;
-	}
-	return (count);
-}
-
-int	get_rotate_dir(t_list *stack, int loc)
-{
-	int	middle;
-	int	size;
-	int	direction;
-
-	direction = 0;
-	size = ft_lstsize(stack);
-	middle = size / 2;
-	if (loc >= middle)
-		direction = 1;
-	return (direction);
-}
-
-void	sync_rotate_top(t_list **a, t_list **b, int index, int sup_index)
-{
-	int	loc_a;
-	int	loc_b;
-
-	loc_a = locate_index(a, sup_index);
-	loc_b = locate_index(b, index);
-	while (*a && (*a)->index != sup_index
-		&& *b && (*b)->index != index)
-	{
-		if (get_rotate_dir(*a, loc_a) == 0 && get_rotate_dir(*b, loc_b) == 0)
-			do_rr(a, b, "rr\n");
-		else if (get_rotate_dir(*a, loc_a) == 1 && get_rotate_dir(*b, loc_b) == 1)
-			do_rrr(a, b, "rrr\n");
-		else
-			break ;
-	}
-}
-
-void	get_index_top(t_list **stack, int index, char c)
+static void	final_sort(t_list **stack_a, int index)
 {
 	int	loc;
 
-	loc = locate_index(stack, index);
-	while (*stack && (*stack)->index != index)
+	loc = locate_index(stack_a, index);
+	while ((*stack_a)->index != index)
 	{
-		if (get_rotate_dir(*stack, loc) == 0)
-			do_rotate(stack, c);
-		else if (get_rotate_dir(*stack, loc) == 1)
-			do_revrotate(stack, c);
+		if (get_rotate_dir(*stack_a, loc) == 0)
+			do_rotate(stack_a, 'a');
+		else if (get_rotate_dir(*stack_a, loc) == 1)
+			do_revrotate(stack_a, 'a');
 	}
 }
 
-void	push_to_a(t_list **stack_a, t_list **stack_b)
+static void	push_to_a(t_list **stack_a, t_list **stack_b)
 {
 	int	sup_index;
 	int	best_index;
@@ -128,35 +40,23 @@ void	push_to_a(t_list **stack_a, t_list **stack_b)
 	do_push(stack_b, stack_a, "pa\n");
 }
 
-int	find_first(t_list *stack_a)
+static void	top_up_b(t_list **stack_a, t_list **stack_b, int max_index)
 {
-	int		count;
-	t_list	*current;
-
-	count = 0;
-	current = stack_a;
-	while (current)
+	while (ft_lstsize(*stack_a) > 3)
 	{
-		if (current->index == 0)
-			break ;
-		count++;
-		current = current->next;
-	}
-	return (count);
-}
-
-void	final_sort(t_list **stack_a, int index)
-{
-	int	loc;
-
-	loc = locate_index(stack_a, index);
-	while ((*stack_a)->index != index)
-	{
-		if (get_rotate_dir(*stack_a, loc) == 0)
+		if ((*stack_a)->index != max_index
+			&& (*stack_a)->index != max_index - 1
+			&& (*stack_a)->index != max_index - 2)
+		{
+			do_push(stack_a, stack_b, "pb\n");
+			if ((*stack_b)->index > max_index / 2
+				&& ft_lstsize(*stack_b) != 1)
+				do_rotate(stack_b, 'b');
+		}
+		else
 			do_rotate(stack_a, 'a');
-		else if (get_rotate_dir(*stack_a, loc) == 1)
-			do_revrotate(stack_a, 'a');
 	}
+	sort_three(stack_a);
 }
 
 void	sort_big(t_list **stack_a, t_tools aid)
@@ -182,8 +82,6 @@ void	sort_big(t_list **stack_a, t_tools aid)
 				init_moves(stack_b);
 				current = stack_b;
 			}
-			else
-				break ;
 		}
 	}
 	if ((*stack_a)->index != 0)

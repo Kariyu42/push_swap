@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/11 20:48:36 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:34:02 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,11 @@ t_list	*parsing_argv(int argc, char **argv)
 	a_head = NULL;
 	while (i < argc)
 	{
-		if (ft_strchr(argv[i], ' ')) //multiple number argv[i]
+		if (ft_strchr(argv[i], ' '))
 			in_quotes(&a_head, argv[i]);
-		else if (ft_isdigit(argv[i][0]) || ((argv[i][0] == '-' || argv[i][0] == '+')
-			&& ft_isdigit(argv[i][1]))) //single number with + or - included
+		else if (ft_isdigit(argv[i][0])
+			|| ((argv[i][0] == '-' || argv[i][0] == '+')
+			&& ft_isdigit(argv[i][1])))
 		{
 			check_number(argv[i]);
 			num = arr_to_int(argv[i]);

@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:18:16 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/29 16:10:20 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:36:28 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	find_smallest(t_list *stack)
 	}
 	return (min);
 }
-#include <stdio.h>
+
 void	simplified_stack(t_list **head)
 {
 	int		nbr;
@@ -66,8 +66,8 @@ void	simplified_stack(t_list **head)
 
 int	best_index(t_list *stack_a, t_list *stack_b)
 {
-	int	worthy;
-	t_list *current;
+	int		worthy;
+	t_list	*current;
 
 	current = stack_a;
 	while (current)

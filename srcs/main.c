@@ -6,25 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/05 15:19:06 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:31:04 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	ft_free_lst(t_list **stack_a)
-{
-	t_list	*tmp;
-
-	tmp = *stack_a;
-	while (*stack_a)
-	{
-		tmp = (*stack_a)->next;
-		free(*stack_a);
-		(*stack_a) = tmp;
-	}
-	(*stack_a) = NULL;
-}
 
 int	main(int argc, char **argv)
 {
@@ -48,6 +34,5 @@ int	main(int argc, char **argv)
 		sort_five(&stack_a);
 	else
 		sort_big(&stack_a, aid);
-	ft_free_lst(&stack_a);
 	return (0);
 }
