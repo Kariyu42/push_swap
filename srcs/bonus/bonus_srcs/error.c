@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 14:46:29 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/06 13:33:19 by kquetat-         ###   ########.fr       */
+/*   Created: 2023/04/07 17:57:11 by kquetat-          #+#    #+#             */
+/*   Updated: 2023/04/07 17:57:34 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "checker.h"
 
 int	check_number(char *str)
 {
@@ -20,6 +19,8 @@ int	check_number(char *str)
 
 	i = 0;
 	count = 0;
+	if (str[i] == '-' && str[i + 1] == '0')
+		ft_error();
 	while (str[i])
 	{
 		if (str[i] == '+' || str[i] == '-')

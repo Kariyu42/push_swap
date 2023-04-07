@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/06 13:28:26 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/07 17:32:42 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define PUSH_SWAP_H
 
 /* library */
-# include "../libft/libft.h"
+# include "../libft/inc/libft.h"
+# include <limits.h>
 
 typedef struct s_tools
 {
@@ -61,10 +62,5 @@ void	ft_error(void);
 int		check_number(char *str);
 void	check_order(t_list *stack_a);
 void	check_duplicates(t_list *stack_a);
-
-/* print_list NOT TO BE PUSHED */
-void	print_index(t_list *list);
-void	print_list(t_list *list, char *str);
-void	print_moves(t_list *list, char *str);
 
 #endif

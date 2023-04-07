@@ -6,22 +6,23 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 11:22:37 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/06 17:05:52 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/07 17:45:59 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-### Name of binary ###
+### Name of binary push_swap & checker ###
 NAME		=	push_swap
+BONUS_NAME	=	checker
 HEADER_F	=	includes/
-LIBFT		=	libft/
-SRCS_PATH	=	srcs/
+LIBFT		=	libft/libft/
+SRCS_PATH	=	srcs/main/
 
 ### Compilation & flags ###
 CC		=	clang
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -Iincludes/
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(OGREEN)$(BOLD)[PUSH_SWAP] => $(RESET)""$(GRAY) $< \033[K\r$(RESET)"
+	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(OGREEN)$(BOLD)[PUSH_SWAP] => $(RESET)""$(GRAY) <$<> \033[K\r$(RESET)"
 
 RM	=	rm -f
 
@@ -40,10 +41,12 @@ ifdef DEBUG
 CFLAGS	+=	-fsanitize=address -g3
 endif
 
-### Source files ###
-SRCS	=	${addprefix ${SRCS_PATH}, ft_error.c ft_moves.c ft_counter.c \
-			ft_parsing.c sort_small.c utils.c sort_big.c double_moves.c \
-			big_utils.c main.c}
+### Source files & Bonus files ###
+SRCS	=	${addprefix ${SRCS_PATH}, sources/ft_error.c sources/ft_moves.c sources/ft_counter.c \
+			sources/ft_parsing.c sources/sort_small.c sources/utils.c sources/sort_big.c sources/double_moves.c \
+			sources/big_utils.c push_swap.c}
+
+SRCS_BONUS	=	checker.c \
 
 OBJS	=	$(SRCS:.c=.o)
 ### Rules ###
@@ -52,14 +55,14 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 	@echo "\n"
 	@printf "\t$(BEIGE)$(BOLD)$(ITALIC)PUSH_SWAP files compiled$(RESET) ✨\n\n"
-	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(RESET)$(OGREEN)$(BOLD)[LIBFT] $(RESET)\n"
+	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(RESET)$(OGREEN)$(BOLD)[LIBFT]$(RESET)\n"
 	@make bonus -C $(LIBFT)
 	@printf "\n\n\t$(BEIGE)$(BOLD)$(ITALIC)LIBFT files compiled$(RESET) ✨\n\n"
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)libft.a
 	@printf "$(BOLD)$(ITALIC)$(LGREEN)PUSH_SWAP COMPILED$(RESET) ✅\n"
 
 bonus:
-
+	$(CC) $(CFLAGS) -o $(OBJS_BONUS) $(BONUS_NAME)
 debug:
 	$(MAKE) DEBUG=1
 

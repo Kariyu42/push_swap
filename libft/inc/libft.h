@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 16:14:51 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/29 11:03:39 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:50:05 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -55,7 +57,7 @@ void	*ft_calloc(size_t count, size_t size);
 /* mem allocation for char table + trim */
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 /* fd functions */
 void	ft_putchar_fd(char c, int fd);
@@ -66,14 +68,11 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(unsigned long long n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-/* chained list functions */
+/* linked list functions */
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-
-/* ft_printf */
-int		ft_printf(const char *format, ...);
 
 #endif

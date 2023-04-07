@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   int_precision.c                                    :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 12:34:34 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/02/13 12:47:12 by kquetat-         ###   ########.fr       */
+/*   Created: 2023/04/07 17:29:04 by kquetat-          #+#    #+#             */
+/*   Updated: 2023/04/07 17:49:18 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-int	precision_control(int len, t_flags *tab)
-{
-	tab->precision -= len;
-	if (tab->precision < 0)
-		tab->precision = 0;
-	return (tab->precision);
-}
+/* libraries */
+# include "../libft/inc/libft.h"
+# include <limits.h>
+
+/* bonus files */
+t_list	*parsing_argv(int argc, char **argv);
+
+#endif

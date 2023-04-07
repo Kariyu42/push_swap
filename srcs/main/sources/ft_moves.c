@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/03 16:55:29 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:38:30 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	do_swap(t_list **stack, char *str)
 {

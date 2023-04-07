@@ -6,12 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 19:43:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/06 13:34:48 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:39:35 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-#include <stdio.h>
+#include "push_swap.h"
 
 static void	final_sort(t_list **stack_a, int index)
 {
