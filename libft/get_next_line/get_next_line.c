@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 13:17:51 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/10 20:58:33 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:35:07 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static char	*ft_read_and_stock(int fd, char	*stash)
 			return (0);
 		}
 		buffer[i] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		stash = ft_strjoin_gnl(stash, buffer);
 	}
 	free(buffer);
 	return (stash);

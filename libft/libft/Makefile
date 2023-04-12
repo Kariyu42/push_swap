@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/05 15:32:35 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/11 16:16:28 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/12 10:18:14 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ RESET		=\033[0m
 NAME 		=	libft.a
 HEADER_PATH	=	../inc/
 SRCS_PATH	=	srcs/
-GNL_DIR		=	../get_next_line/
 
 ### Compiler & Other variables ###
 CC		= clang
@@ -43,8 +42,7 @@ SRCS	=	${addprefix $(SRCS_PATH), ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 			ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memcmp.c ft_strnstr.c \
 			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c} \
-			${addprefix $(GNL_DIR), get_next_line.c get_next_line_utils.c}
+			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c}
 
 ### Bonus part ###
 SRCS_BONUS =	${addprefix $(SRCS_PATH), ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \

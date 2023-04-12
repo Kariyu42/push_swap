@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 11:22:37 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/11 16:07:27 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/12 10:22:32 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ HEADER_F	=	includes/
 LIBFT		=	libft/libft/
 SRCS_PATH	=	srcs/main/
 BONUS_PATH	=	./srcs/bonus/
+GNL_DIR		=	libft/get_next_line/
 
 ### Compilation & flags ###
 CC		=	gcc
@@ -26,6 +27,10 @@ $(SRCS_PATH)%.o: $(SRCS_PATH)%.c
 	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(OGREEN)$(BOLD)[PUSH_SWAP] => $(RESET)""$(OGREEN) <$<> \033[K\r$(RESET)"
 
 $(BONUS_PATH)%.o: $(BONUS_PATH)%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(OGREEN)$(BOLD)[CHECKER] => $(RESET)""$(GRAY) <$<> \033[K\r$(RESET)"
+
+$(GNL_DIR)%.o: $(GNL_DIR)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(SKYBLUE)$(BOLD)$(ITALIC)-> Compiling $(OGREEN)$(BOLD)[CHECKER] => $(RESET)""$(GRAY) <$<> \033[K\r$(RESET)"
 
@@ -52,7 +57,8 @@ SRCS	=	${addprefix ${SRCS_PATH}, sources/ft_error.c sources/ft_moves.c sources/f
 			sources/big_utils.c push_swap.c}
 
 SRCS_BONUS	=	${addprefix ${BONUS_PATH}, bonus_srcs/error.c bonus_srcs/move_utils.c \
-				bonus_srcs/move_utils2.c bonus_srcs/parsing.c checker.c}
+				bonus_srcs/move_utils2.c bonus_srcs/parsing.c checker.c} \
+				${addprefix $(GNL_DIR), get_next_line.c get_next_line_utils.c}
 
 OBJS		=	$(SRCS:.c=.o)
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
