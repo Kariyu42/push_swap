@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_moves.c                                         :+:      :+:    :+:   */
+/*   move_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:52:58 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "../../../includes/checker.h"
 
 void	do_swap(t_list **stack, char *str)
 {
@@ -34,7 +34,8 @@ void	do_push(t_list **stack1, t_list **stack2, char *str)
 	*stack1 = (*stack1)->next;
 	top->next = *stack2;
 	*stack2 = top;
-	ft_putstr_fd(str, 1);
+	if (str)
+		ft_putstr_fd(str, 1);
 }
 
 void	do_rotate(t_list **head, char c)

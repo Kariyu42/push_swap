@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:48:49 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 17:49:02 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:48:03 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../../includes/checker.h"
 
 static long	arr_to_int(char *str)
 {
@@ -49,7 +49,7 @@ static void	in_quotes(t_list **a_head, char *str)
 	tmp = ft_split(str, ' ');
 	if (tmp[i] == NULL)
 		ft_error();
-	while (tmp[i] && check_number(tmp[i]))
+	while (tmp[i] && check_number_bonus(tmp[i]))
 	{
 		num = arr_to_int(tmp[i]);
 		ft_lstadd_back(a_head, ft_lstnew(num));
@@ -57,14 +57,14 @@ static void	in_quotes(t_list **a_head, char *str)
 	}
 }
 
-t_list	*parsing_argv(int argc, char **argv)
+t_list	*parsing_bonus(int argc, char **argv)
 {
 	int		i;
 	int		num;
 	t_list	*a_head;
 
 	i = 1;
-	a_head = NULL;
+	a_head = 0;
 	while (i < argc)
 	{
 		if (ft_strchr(argv[i], ' '))
@@ -73,7 +73,7 @@ t_list	*parsing_argv(int argc, char **argv)
 			|| ((argv[i][0] == '-' || argv[i][0] == '+')
 			&& ft_isdigit(argv[i][1])))
 		{
-			check_number(argv[i]);
+			check_number_bonus(argv[i]);
 			num = arr_to_int(argv[i]);
 			ft_lstadd_back(&a_head, ft_lstnew(num));
 		}

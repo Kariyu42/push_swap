@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:21:09 by kquetat-          #+#    #+#             */
-/*   Updated: 2022/11/14 11:46:20 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:56:53 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

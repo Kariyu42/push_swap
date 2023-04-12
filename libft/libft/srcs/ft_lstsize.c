@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:05:08 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/03/22 12:51:10 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:56:53 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

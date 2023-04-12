@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:33:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:50:33 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:56:53 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

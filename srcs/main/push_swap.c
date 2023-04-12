@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:53:03 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 16:40:57 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:27:47 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {

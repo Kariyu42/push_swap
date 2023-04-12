@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:29:44 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 17:04:18 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:58:21 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../inc/get_next_line.h"
 
 char	*ft_strchr(const char *str, int c)
 {

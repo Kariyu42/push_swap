@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/05 15:32:35 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/07 16:59:21 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/11 16:16:28 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,22 @@ RESET		=\033[0m
 
 ### Name of library ###
 NAME 		=	libft.a
+HEADER_PATH	=	../inc/
 SRCS_PATH	=	srcs/
+GNL_DIR		=	../get_next_line/
+
 ### Compiler & Other variables ###
 CC		= clang
-CFLAGS	= -Wall -Wextra -Werror -I../inc/
+CFLAGS	= -Wall -Wextra -Werror
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(PALEBLUE)$(BOLD)$(ITALIC)Loading: $(RESET)""$(LGREEN)<$<> \033[K\r$(RESET)"
 
-OBJ			= $(SRCS:.c=.o)
-OBJ_BONUS	= $(SRCS_BONUS:.c=.o)
+OBJ			=	$(SRCS:.c=.o)
+OBJ_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-RM	= rm -f
+RM	=	rm -f
 
 ### Mandatory part ###
 SRCS	=	${addprefix $(SRCS_PATH), ft_isalpha.c ft_isdigit.c ft_isalnum.c \
@@ -40,16 +43,18 @@ SRCS	=	${addprefix $(SRCS_PATH), ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 			ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memcmp.c ft_strnstr.c \
 			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c}
+			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c} \
+			${addprefix $(GNL_DIR), get_next_line.c get_next_line_utils.c}
+
 ### Bonus part ###
 SRCS_BONUS =	${addprefix $(SRCS_PATH), ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 				ft_lstlast.c ft_lstadd_back.c}
 
 ### Rules ###
 all:	$(NAME)
-	@echo "\nCompilation complete!"
 
 $(NAME):	$(OBJ)
+	@echo "\n"
 	@echo -e "$(YELLOW)Creating libft.a...$(RESET)"
 	@ar rcs $(NAME) $(OBJ)
 	@echo -e "$(GREEN)libft.a created !$(RESET)"

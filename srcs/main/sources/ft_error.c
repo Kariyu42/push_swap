@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:46:29 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 16:40:23 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../../includes/push_swap.h"
 
 int	check_number(char *str)
 {

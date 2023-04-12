@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_moves.c                                     :+:      :+:    :+:   */
+/*   move_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:23:38 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:53:06 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "../../../includes/checker.h"
 
 void	do_ss(t_list **stack_a, t_list **stack_b, char *str)
 {

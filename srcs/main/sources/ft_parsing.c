@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 16:39:49 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../../includes/push_swap.h"
 
 static long	arr_to_int(char *str)
 {

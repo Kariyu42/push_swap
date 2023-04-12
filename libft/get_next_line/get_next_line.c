@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 13:17:51 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 17:05:50 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:58:33 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../inc/get_next_line.h"
 
 static char	*ft_stock_next_call(char *stash)
 {

@@ -6,13 +6,13 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:57:11 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 17:57:34 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:05:15 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../../../includes/checker.h"
 
-int	check_number(char *str)
+int	check_number_bonus(char *str)
 {
 	int	i;
 	int	count;
@@ -38,7 +38,7 @@ int	check_number(char *str)
 	return (1);
 }
 
-void	check_duplicates(t_list *stack_a)
+void	dup_bonus(t_list *stack_a)
 {
 	int		nbr;
 	t_list	*tmp;
@@ -57,7 +57,7 @@ void	check_duplicates(t_list *stack_a)
 	}
 }
 
-void	check_order(t_list *stack_a)
+void	check_order_bonus(t_list *stack_a)
 {
 	int		nbr;
 	t_list	*tmp;

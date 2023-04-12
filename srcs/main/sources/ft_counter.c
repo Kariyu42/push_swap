@@ -6,11 +6,11 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:09:15 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 16:38:26 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../../includes/push_swap.h"
 
 int	find_least_moves(t_list *stack_b)
 {
