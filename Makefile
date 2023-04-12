@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 11:22:37 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/12 10:22:32 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/12 11:20:36 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,8 @@ clean:
 	@printf "\n\t$(VIOLET)$(BOLD)$(ITALIC)LIBFT files removed$(RESET) ...\n\n"
 
 fclean:	clean
-	@$(RM) $(NAME) $(BONUS_NAME)
+	@$(RM) $(NAME)
+	@$(RM) $(BONUS_NAME)
 	@$(RM) $(LIBFT)libft.a
 	@printf "\n\t$(VIOLET)$(BOLD)$(ITALIC)PUSH_SWAP binary removed$(RESET) ...\n\n"
 

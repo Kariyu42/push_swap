@@ -6,11 +6,24 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:26:34 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/12 10:36:21 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:53:03 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker.h"
+
+static void	free_lst(t_list **a)
+{
+	t_list	*tmp;
+
+	while (*a)
+	{
+		tmp = (*a)->next;
+		free(*a);
+		*a = tmp;
+	}
+	*a = NULL;
+}
 
 static int	recheck_order(t_list *stack_a)
 {
@@ -88,5 +101,6 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("OK\n", 1);
 	else if (recheck_order(stack_a) == INVALID && stack_b == NULL)
 		ft_putstr_fd("KO\n", 1);
+	free_lst(&stack_a);
 	return (0);
 }
