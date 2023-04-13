@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:26:34 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/12 12:53:03 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/13 12:31:03 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,10 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = parsing_bonus(argc, argv);
 	dup_bonus(stack_a);
-	check_order_bonus(stack_a);
 	read_entry(&stack_a, &stack_b);
-	if (recheck_order(stack_a) == VALID)
+	if (recheck_order(stack_a) == VALID && stack_b == NULL)
 		ft_putstr_fd("OK\n", 1);
-	else if (recheck_order(stack_a) == INVALID && stack_b == NULL)
+	else
 		ft_putstr_fd("KO\n", 1);
 	free_lst(&stack_a);
 	return (0);

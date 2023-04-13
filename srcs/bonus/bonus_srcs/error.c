@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:57:11 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/10 20:05:15 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/13 12:19:26 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,6 @@ void	dup_bonus(t_list *stack_a)
 		}
 		stack_a = stack_a->next;
 	}
-}
-
-void	check_order_bonus(t_list *stack_a)
-{
-	int		nbr;
-	t_list	*tmp;
-
-	while (stack_a->next)
-	{
-		tmp = stack_a;
-		nbr = tmp->nbr;
-		while (tmp->next)
-		{
-			tmp = tmp->next;
-			if (nbr > tmp->nbr)
-				return ;
-		}
-		stack_a = stack_a->next;
-	}
-	exit(EXIT_FAILURE);
 }
 
 void	ft_error(void)

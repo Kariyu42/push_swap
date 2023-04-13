@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:29:04 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/11 18:45:25 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/13 12:19:37 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_list	*parsing_bonus(int argc, char **argv);
 void	dup_bonus(t_list *stack_a);
 void	ft_error(void);
 int		check_number_bonus(char *str);
-void	check_order_bonus(t_list *stack_a);
 /* moves */
 void	do_swap(t_list **stack, char *str);
 void	do_push(t_list **stack1, t_list **stack2, char *str);
