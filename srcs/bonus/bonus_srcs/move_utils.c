@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:36:40 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/11 15:52:58 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/14 09:35:43 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	do_swap(t_list **stack, char *str)
 	t_list	*tmp;
 	t_list	*buf;
 
+	if (ft_lstsize(*stack) < 2)
+		return ;
 	tmp = *stack;
 	buf = tmp->next;
 	tmp->next = buf->next;
@@ -30,6 +32,8 @@ void	do_push(t_list **stack1, t_list **stack2, char *str)
 {
 	t_list	*top;
 
+	if (!(*stack1))
+		return ;
 	top = *stack1;
 	*stack1 = (*stack1)->next;
 	top->next = *stack2;
@@ -43,6 +47,8 @@ void	do_rotate(t_list **head, char c)
 	t_list	*last;
 	t_list	*first;
 
+	if (ft_lstsize(*head) < 2)
+		return ;
 	first = *head;
 	last = ft_lstlast(*head);
 	last->next = first;
@@ -59,6 +65,8 @@ void	do_revrotate(t_list **head, char c)
 	t_list	*last;
 	t_list	*bef_last;
 
+	if (ft_lstsize(*head) < 2)
+		return ;
 	last = *head;
 	while (last->next)
 	{

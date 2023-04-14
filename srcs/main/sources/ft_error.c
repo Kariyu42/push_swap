@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:46:29 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:10:48 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	check_number(char *str)
 		if (str[i] == '+' || str[i] == '-')
 		{
 			count++;
-			i++;
+			if (!ft_isdigit(str[i - 1]))
+				i++;
 		}
 		if (count == 2)
 			ft_error();

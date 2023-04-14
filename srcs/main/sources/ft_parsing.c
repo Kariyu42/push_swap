@@ -6,11 +6,24 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:50:32 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/11 14:27:32 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:24:12 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
+
+void	free_split(char **tmp)
+{
+	int	i;
+
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
+}
 
 static long	arr_to_int(char *str)
 {
@@ -48,13 +61,17 @@ static void	in_quotes(t_list **a_head, char *str)
 	i = 0;
 	tmp = ft_split(str, ' ');
 	if (tmp[i] == NULL)
+	{
+		free_split(tmp);
 		ft_error();
+	}
 	while (tmp[i] && check_number(tmp[i]))
 	{
 		num = arr_to_int(tmp[i]);
 		ft_lstadd_back(a_head, ft_lstnew(num));
 		i++;
 	}
+	free_split(tmp);
 }
 
 t_list	*parsing_argv(int argc, char **argv)

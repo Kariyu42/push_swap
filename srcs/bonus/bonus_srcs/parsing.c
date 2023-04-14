@@ -6,11 +6,24 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:48:49 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/12 10:37:24 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:27:04 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/checker.h"
+
+void	free_split_bonus(char **tmp)
+{
+	int	i;
+
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
+}
 
 static long	arr_to_int(char *str)
 {
@@ -48,13 +61,17 @@ static void	in_quotes(t_list **a_head, char *str)
 	i = 0;
 	tmp = ft_split(str, ' ');
 	if (tmp[i] == NULL)
+	{
+		free_split_bonus(tmp);
 		ft_error();
+	}
 	while (tmp[i] && check_number_bonus(tmp[i]))
 	{
 		num = arr_to_int(tmp[i]);
 		ft_lstadd_back(a_head, ft_lstnew(num));
 		i++;
 	}
+	free_split_bonus(tmp);
 }
 
 t_list	*parsing_bonus(int argc, char **argv)

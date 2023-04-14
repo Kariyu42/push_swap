@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:29:04 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/13 12:19:37 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:26:29 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 /* bonus files */
 t_list	*parsing_bonus(int argc, char **argv);
 /* error management */
+void	free_split_bonus(char **tmp);
 void	dup_bonus(t_list *stack_a);
 void	ft_error(void);
 int		check_number_bonus(char *str);

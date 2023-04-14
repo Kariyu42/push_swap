@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:54:13 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/07 17:32:42 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:23:24 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	do_ss(t_list **stack_a, t_list **stack_b, char *str);
 
 /* error management */
 void	ft_error(void);
+void	free_split(char **tmp);
 int		check_number(char *str);
 void	check_order(t_list *stack_a);
 void	check_duplicates(t_list *stack_a);
