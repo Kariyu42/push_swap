@@ -6,7 +6,7 @@
 /*   By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:46:29 by kquetat-          #+#    #+#             */
-/*   Updated: 2023/04/14 14:10:48 by kquetat-         ###   ########.fr       */
+/*   Updated: 2023/04/15 16:27:10 by kquetat-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	check_number(char *str)
 
 	i = 0;
 	count = 0;
-	if (str[i] == '-' && str[i + 1] == '0')
-		ft_error();
 	while (str[i])
 	{
 		if (str[i] == '+' || str[i] == '-')
@@ -75,7 +73,7 @@ void	check_order(t_list *stack_a)
 		}
 		stack_a = stack_a->next;
 	}
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_error(void)

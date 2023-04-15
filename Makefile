@@ -6,7 +6,7 @@
 #    By: kquetat- <kquetat-@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 11:22:37 by kquetat-          #+#    #+#              #
-#    Updated: 2023/04/12 11:20:36 by kquetat-         ###   ########.fr        #
+#    Updated: 2023/04/15 16:37:36 by kquetat-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,8 +56,8 @@ SRCS	=	${addprefix ${SRCS_PATH}, sources/ft_error.c sources/ft_moves.c sources/f
 			sources/ft_parsing.c sources/sort_small.c sources/utils.c sources/sort_big.c sources/double_moves.c \
 			sources/big_utils.c push_swap.c}
 
-SRCS_BONUS	=	${addprefix ${BONUS_PATH}, bonus_srcs/error.c bonus_srcs/move_utils.c \
-				bonus_srcs/move_utils2.c bonus_srcs/parsing.c checker.c} \
+SRCS_BONUS	=	${addprefix ${BONUS_PATH}, bonus_srcs/error_bonus.c bonus_srcs/move_utils_bonus.c \
+				bonus_srcs/move_utils2_bonus.c bonus_srcs/parsing_bonus.c checker_bonus.c} \
 				${addprefix $(GNL_DIR), get_next_line.c get_next_line_utils.c}
 
 OBJS		=	$(SRCS:.c=.o)
