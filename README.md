@@ -3,6 +3,7 @@
 ## Our 1st 42 algorithm project.
 
 Push_swap is a sorting algorithm project that requires you to write a C program that sorts a stack of integers using only a limited set of operations. You must implement two sorting algorithms, one for small input sizes and another for larger ones. The challenge is that you only have two stacks to work with, and the goal is to minimize the number of operations required to sort the stack.
+
 | Operations | Description |
 | ------ | ----------- |
 | sa | Swap the first two elements in stack A. |
